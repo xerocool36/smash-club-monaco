@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#0A0405">
 <meta property="og:title" content="Smash Club Monaco — Le burger qui règne">
 <meta property="og:description" content="Premium smash burgers à Monaco-Ville. 4,6★ · 7/7 de 11h à 21h45.">
-<meta property="og:image" content="assets/keyart.webp">
+<meta property="og:image" content="assets/hero-bg.webp">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,37 +44,36 @@ section{position:relative}
 .nav .btn{min-height:44px;font-size:.84rem;padding:0 1.05rem}
 @media (max-width:980px){.nav-links{display:none}}
 
-/* ============ hero ============ */
-.hero{min-height:100svh;display:grid;align-items:center;padding:120px 0 72px;overflow:clip;
+/* ============ hero — full-bleed cinematic band ============ */
+.hero{position:relative;min-height:min(92svh,780px);display:flex;align-items:flex-end;
+  padding:150px 0 clamp(48px,7vw,84px);overflow:clip;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
+/* scrim: keeps type readable over the photo, warm at the edges */
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;
   background:
-    radial-gradient(110% 80% at 76% 14%,rgba(255,110,20,.24),transparent 58%),
-    radial-gradient(95% 75% at 12% 92%,rgba(232,24,12,.26),transparent 62%),
-    linear-gradient(#0A0405,#1E0809 50%,#0A0405)}
-.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,5vw,72px);align-items:center;position:relative;z-index:2}
-.hero h1{font-size:clamp(2.9rem,7.6vw,6rem);line-height:.9}
+    linear-gradient(180deg,rgba(10,4,5,.86) 0%,rgba(10,4,5,.28) 32%,rgba(10,4,5,.74) 78%,#0A0405 100%),
+    linear-gradient(90deg,rgba(10,4,5,.88) 0%,rgba(10,4,5,.24) 60%,transparent 100%)}
+.hero>.wrap{width:100%}   /* flex child would otherwise shrink to content and self-centre */
+.hero-in{position:relative;z-index:1;max-width:640px}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5rem);line-height:.94}
 .hero h1 em{font-style:normal;display:block;color:var(--gold)}
-.hero .sub{margin-top:1.4rem;font-size:clamp(1rem,1.8vw,1.16rem);color:var(--cream-dim);max-width:42ch}
-.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
-.hero-meta{display:flex;flex-wrap:wrap;gap:.45rem 1.5rem;margin-top:2rem;font-size:.85rem;color:var(--cream-dim);align-items:center}
+.hero .sub{margin-top:1.2rem;font-size:clamp(1rem,1.7vw,1.12rem);color:#E7DACF;max-width:40ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-top:1.8rem;font-size:.84rem;color:#C9BAB0;align-items:center}
 .hero-meta b{color:var(--cream);font-weight:600}
 .stars{color:var(--gold);letter-spacing:.06em}
 
-/* their own neon key art as the hero visual */
-.poster{position:relative;justify-self:center;width:100%;max-width:430px}
-/* height:auto is load-bearing — without it the height attribute becomes the CSS height */
-.poster img{width:100%;height:auto;border-radius:18px;border:1px solid rgba(255,138,0,.28);
-  box-shadow:0 40px 90px -34px #000,0 0 70px -20px rgba(255,90,10,.5)}
-
-.hero-fade{opacity:0;transform:translateY(16px);animation:heroIn .85s cubic-bezier(.22,.8,.3,1) forwards}
-.f1{animation-delay:.05s}.f2{animation-delay:.16s}.f3{animation-delay:.27s}.f4{animation-delay:.38s}.f5{animation-delay:.49s}
+.hero-fade{opacity:0;transform:translateY(14px);animation:heroIn .8s cubic-bezier(.22,.8,.3,1) forwards}
+.f1{animation-delay:.05s}.f2{animation-delay:.15s}.f3{animation-delay:.25s}.f4{animation-delay:.35s}.f5{animation-delay:.45s}
 @keyframes heroIn{to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.hero-fade{animation:none;opacity:1;transform:none}}
 
 @media (max-width:900px){
-  .hero{padding:100px 0 56px;min-height:auto}
-  .hero-grid{grid-template-columns:1fr;gap:30px}
-  .poster{order:-1;max-width:290px}
-  .hero h1{font-size:clamp(2.6rem,11vw,3.6rem)}
+  .hero{min-height:78svh;padding:132px 0 54px;background-color:#0A0405}
+  .hero-bg img{object-position:center 46%}
+  .hero::before{background:linear-gradient(180deg,rgba(10,4,5,.84) 0%,rgba(10,4,5,.44) 30%,rgba(10,4,5,.84) 74%,#0A0405 100%)}
+  .hero h1{font-size:clamp(2.3rem,9.6vw,3.3rem)}
 }
 
 /* ============ ticker ============ */
@@ -87,8 +86,8 @@ section{position:relative}
 
 /* ============ story ============ */
 .story{padding:clamp(72px,9vw,120px) 0}
-.story-in{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,5vw,72px);align-items:center}
-.story-img img{width:100%;border-radius:18px;aspect-ratio:4/5;object-fit:cover;
+.story-in{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.story-img img{width:100%;height:auto;border-radius:18px;aspect-ratio:3/2;object-fit:cover;
   box-shadow:0 36px 80px -34px #000;border:1px solid var(--line)}
 .steps{display:grid;gap:2rem;margin-top:2.2rem}
 .step{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start}
@@ -96,7 +95,7 @@ section{position:relative}
   border:1px solid rgba(255,138,0,.35);border-radius:999px;padding:.45rem .7rem;line-height:1}
 .step h3{font-size:1.2rem;letter-spacing:.02em}
 .step p{color:var(--cream-dim);margin-top:.4rem;font-size:.96rem}
-@media (max-width:860px){.story-in{grid-template-columns:1fr}.story-img{max-width:340px}}
+@media (max-width:860px){.story-in{grid-template-columns:1fr}}
 
 /* ============ menu card ============ */
 .menucard{padding:clamp(20px,4vw,40px) 0 clamp(72px,9vw,110px)}
@@ -113,12 +112,12 @@ section{position:relative}
 .mc-list span{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-dim);
   border:1px solid var(--line);border-radius:999px;padding:.45rem .75rem}
 .mc-cta{margin-top:1.9rem;display:flex;flex-wrap:wrap;gap:.7rem}
-.mc-img{position:relative;min-height:300px;overflow:clip}
+.mc-img{position:relative;aspect-ratio:3/2;overflow:clip}
 .mc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   transition:transform .7s cubic-bezier(.22,.8,.3,1)}
 .mc:hover .mc-img img{transform:scale(1.04)}
 .mc-img::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,#160708 6%,transparent 62%)}
-@media (max-width:860px){.mc{grid-template-columns:1fr}.mc-img{min-height:230px;order:-1}
+@media (max-width:860px){.mc{grid-template-columns:1fr}.mc-img{order:-1}
   .mc-img::after{background:linear-gradient(#16070800 40%,#160708)}}
 
 /* ============ club ============ */
@@ -130,10 +129,9 @@ section{position:relative}
 .gal figcaption{position:absolute;inset:auto 0 0 0;padding:1.5rem 1.05rem .9rem;
   font:600 .74rem/1.3 var(--body);letter-spacing:.13em;text-transform:uppercase;
   background:linear-gradient(transparent,rgba(8,4,13,.9))}
-.ga{grid-column:span 7;aspect-ratio:16/11}
-.gb{grid-column:span 5;aspect-ratio:4/5}
-.gc{grid-column:span 12;aspect-ratio:21/8}
-@media (max-width:760px){.ga,.gb,.gc{grid-column:span 12;aspect-ratio:4/3}}
+.ga,.gb,.gc{grid-column:span 4;aspect-ratio:3/2}
+@media (max-width:900px){.ga,.gb,.gc{grid-column:span 6}}
+@media (max-width:600px){.ga,.gb,.gc{grid-column:span 12}}
 
 /* ============ reviews ============ */
 .rev{padding:clamp(72px,9vw,110px) 0}
@@ -198,8 +196,14 @@ section{position:relative}
 
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
+  <div class="hero-bg">
+    <img src="assets/hero-bg.webp" width="1900" height="868" fetchpriority="high"
+         data-alt-fr="Le Rocher de Monaco illuminé la nuit"
+         data-alt-en="The Rock of Monaco lit up at night"
+         alt="Le Rocher de Monaco illuminé la nuit">
+  </div>
+  <div class="wrap">
+    <div class="hero-in">
       <h1>
         <span class="hero-fade f1" data-fr="Le burger">Le burger</span><span class="hero-fade f1" data-en="The burger"></span>
         <em class="hero-fade f2"><span data-fr="qui règne">qui règne</span><span data-en="that reigns"></span></em>
@@ -218,12 +222,6 @@ section{position:relative}
         <span><b>7/7</b> · 11h — 21h45</span>
       </div>
     </div>
-    <div class="poster hero-fade f2">
-      <img src="assets/keyart.webp" width="1100" height="1650" fetchpriority="high"
-           data-alt-fr="Affiche Smash Club Monaco : enseigne néon au-dessus de Monaco la nuit"
-           data-alt-en="Smash Club Monaco poster: neon sign above Monaco at night"
-           alt="Affiche Smash Club Monaco : enseigne néon au-dessus de Monaco la nuit">
-    </div>
   </div>
 </section>
 
@@ -241,7 +239,7 @@ section{position:relative}
 <section class="story" id="story">
   <div class="wrap story-in">
     <div class="story-img" data-reveal>
-      <img src="assets/cheesepull.webp" width="1305" height="1400" loading="lazy"
+      <img src="assets/story.webp" width="1400" height="933" loading="lazy"
            data-alt-fr="Smash burger tenu à la main, cheddar fondu"
            data-alt-en="Smash burger held in hand, melted cheddar"
            alt="Smash burger tenu à la main, cheddar fondu">
@@ -292,7 +290,7 @@ section{position:relative}
         </div>
       </div>
       <div class="mc-img">
-        <img src="assets/bag-chicken.webp" width="1086" height="1086" loading="lazy"
+        <img src="assets/menu-card.webp" width="1400" height="933" loading="lazy"
              data-alt-fr="Sac kraft Smash Club Monaco et burger"
              data-alt-en="Smash Club Monaco kraft bag and burger"
              alt="Sac kraft Smash Club Monaco et burger">
@@ -309,21 +307,21 @@ section{position:relative}
     <p class="lead" data-reveal><span data-fr="Néons rouges, drapeaux du monde entier au plafond et les matchs en direct sur écran. Sur le Rocher, à deux pas du Palais.">Néons rouges, drapeaux du monde entier au plafond et les matchs en direct sur écran. Sur le Rocher, à deux pas du Palais.</span><span data-en="Red neon, flags of the world across the ceiling and live matches on screen. On the Rock, steps from the Palace."></span></p>
     <div class="gal">
       <figure class="ga" data-reveal>
-        <img src="assets/interior-team.webp" width="1500" height="1500" loading="lazy"
+        <img src="assets/gal-inside.webp" width="1400" height="933" loading="lazy"
              data-alt-fr="Intérieur du Smash Club, drapeaux du monde au plafond"
              data-alt-en="Inside Smash Club, world flags across the ceiling"
              alt="Intérieur du Smash Club, drapeaux du monde au plafond">
         <figcaption><span data-fr="L'intérieur">L'intérieur</span><span data-en="Inside"></span></figcaption>
       </figure>
       <figure class="gb" data-reveal>
-        <img src="assets/storefront.webp" width="1400" height="1866" loading="lazy"
+        <img src="assets/gal-front.webp" width="1400" height="933" loading="lazy"
              data-alt-fr="Devanture du Smash Club, 3 rue de l'Église"
              data-alt-en="Smash Club storefront, 3 rue de l'Église"
              alt="Devanture du Smash Club, 3 rue de l'Église">
         <figcaption>Rue de l'Église</figcaption>
       </figure>
       <figure class="gc" data-reveal>
-        <img src="assets/neon-chalk.webp" width="1300" height="1300" loading="lazy"
+        <img src="assets/gal-neon.webp" width="1400" height="933" loading="lazy"
              data-alt-fr="Enseigne néon et ardoise annonçant le match du jour"
              data-alt-en="Neon sign and chalkboard announcing today's match"
              alt="Enseigne néon et ardoise annonçant le match du jour">
