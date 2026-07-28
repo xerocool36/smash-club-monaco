@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Menu — Smash Club Monaco</title>
+<meta name="description" content="La carte complète du Smash Club Monaco : smash burgers simple, double ou triple, sides, salade César, desserts et boissons. 3 rue de l'Église, Monaco-Ville.">
+<meta name="theme-color" content="#0A0405">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/core.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A0405'/%3E%3Cg fill='none' stroke='%23FFC24B' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 30 32 14 42 21 50 10 58 21 68 14 65 30'/%3E%3Cpath d='M24 50c0-11 11-16 26-16s26 5 26 16'/%3E%3Cpath d='M25 60c8-5 16 5 25 0s17 5 25 0'/%3E%3Cpath d='M26 72c0 8 11 12 24 12s24-4 24-12'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+.wrap{max-width:820px;margin:0 auto;padding-inline:var(--pad)}
+
+/* ---- top bar ---- */
+.mbar{position:sticky;top:0;z-index:60;background:#0A0405F2;backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);padding:.7rem var(--pad);display:flex;align-items:center;gap:.9rem}
+.mbar .logo{color:var(--cream);margin-right:auto}
+.mbar .logo-mark{width:32px;height:32px}
+.mbar .logo-word b{font-size:1.1rem}
+.back{display:inline-flex;align-items:center;gap:.4rem;min-height:44px;padding:0 .8rem;border-radius:999px;
+  border:1px solid var(--line);text-decoration:none;color:var(--cream-dim);font-size:.8rem;transition:.2s}
+.back:hover{color:var(--gold);border-color:var(--gold)}
+
+/* ---- masthead ---- */
+.mhead{text-align:center;padding:clamp(38px,8vw,72px) 0 clamp(26px,4vw,38px);
+  background:radial-gradient(90% 70% at 50% 0,rgba(255,80,10,.22),transparent 62%)}
+.mhead .logo-mark{width:66px;height:66px;margin:0 auto 1.1rem}
+.mhead h1{font-size:clamp(2.6rem,11vw,4.4rem)}
+.mhead p{color:var(--cream-dim);margin-top:.8rem;font-size:.95rem}
+.mhead .hrs{margin-top:1.1rem;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+
+/* ---- sticky category nav ---- */
+.cats{position:sticky;top:56px;z-index:50;background:#0A0405F5;backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cats-in{display:flex;gap:.4rem;padding:.55rem var(--pad);width:max-content;min-width:100%}
+.cats a{white-space:nowrap;text-decoration:none;color:var(--cream-dim);font:600 .74rem/1 var(--body);
+  letter-spacing:.14em;text-transform:uppercase;padding:.72rem .85rem;border-radius:999px;
+  border:1px solid transparent;min-height:44px;display:inline-flex;align-items:center;transition:.2s}
+.cats a:hover,.cats a.on{color:var(--gold);border-color:rgba(255,194,75,.4);background:rgba(255,194,75,.07)}
+
+/* ---- sections ---- */
+.msec{padding:clamp(34px,6vw,58px) 0 0;scroll-margin-top:116px}
+.msec h2{font-size:clamp(1.8rem,6vw,2.6rem);color:var(--gold);
+  filter:drop-shadow(0 0 14px rgba(255,60,26,.35))}
+.msec .note{color:var(--cream-dim);font-size:.86rem;margin-top:.5rem}
+
+/* ---- size header ---- */
+.szhead{display:grid;grid-template-columns:1fr repeat(3,58px);gap:.5rem;align-items:end;
+  margin-top:1.5rem;padding-bottom:.5rem;border-bottom:1px solid var(--line)}
+.szhead>span{font:600 .62rem/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--neon-2);text-align:right}
+.szhead>span:first-child{text-align:left;color:var(--cream-dim)}
+
+/* ---- items ---- */
+.item{display:grid;grid-template-columns:1fr repeat(3,58px);gap:.5rem;
+  padding:1.05rem 0;border-bottom:1px solid rgba(247,241,231,.07);align-items:start}
+.item .nm{font-family:var(--display);font-size:1.16rem;letter-spacing:.01em;text-transform:uppercase}
+.item .ing{grid-column:1/-1;color:var(--cream-dim);font-size:.82rem;line-height:1.5;margin-top:.35rem}
+.item .p{font-family:var(--display);font-size:1.16rem;color:var(--gold);text-align:right;line-height:1.3}
+.item.veg .nm{color:#8FD694}
+
+/* simple two-column rows (sides, desserts, drinks) */
+.row{display:flex;justify-content:space-between;gap:1.2rem;padding:.85rem 0;
+  border-bottom:1px solid rgba(247,241,231,.07);align-items:baseline}
+.row .nm{font-family:var(--display);font-size:1.1rem;text-transform:uppercase}
+.row .p{font-family:var(--display);font-size:1.1rem;color:var(--gold);white-space:nowrap}
+.row small{display:block;color:var(--cream-dim);font-size:.8rem;font-family:var(--body);text-transform:none;letter-spacing:0;margin-top:.2rem}
+
+/* ---- combo callout ---- */
+.combo{margin-top:1.4rem;border:1px solid rgba(255,138,0,.42);background:rgba(255,138,0,.07);
+  border-radius:14px;padding:1.1rem 1.2rem;display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center}
+.combo b{font-family:var(--display);color:var(--gold);font-size:1.25rem;font-weight:400;letter-spacing:.03em}
+.combo span{color:var(--cream-dim);font-size:.9rem}
+
+/* ---- king strip ---- */
+.kingstrip{margin-top:2.2rem;border:1px solid var(--line);border-radius:18px;overflow:clip;
+  display:grid;grid-template-columns:130px 1fr;align-items:center;background:linear-gradient(120deg,#22090A,#140708)}
+.kingstrip img{width:100%;height:100%;object-fit:cover;min-height:130px}
+.kingstrip div{padding:1.1rem 1.3rem}
+.kingstrip .lbl{font:600 .62rem/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--neon-2)}
+.kingstrip h3{font-size:1.5rem;margin:.45rem 0 .35rem;color:var(--gold)}
+.kingstrip p{color:var(--cream-dim);font-size:.84rem;line-height:1.5}
+
+/* ---- bottom cta ---- */
+.mcta{margin:clamp(40px,7vw,66px) 0 0;text-align:center;padding-bottom:clamp(30px,5vw,50px)}
+.mcta .btns{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin-top:1.3rem}
+.mcta p{color:var(--cream-dim);font-size:.92rem}
+
+@media (max-width:430px){
+  .szhead,.item{grid-template-columns:1fr repeat(3,46px)}
+  .item .nm{font-size:1.05rem}
+  .item .p{font-size:1rem}
+  .szhead span{font-size:.56rem}
+  .kingstrip{grid-template-columns:1fr}
+  .kingstrip img{min-height:150px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#menu"><span data-fr="Aller au menu">Aller au menu</span><span data-en="Skip to menu"></span></a>
+
+<header class="mbar">
+  <a class="logo" href="index.html" aria-label="Smash Club Monaco">
+    <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true">
+      <path class="crown" d="M35 30 32 14 42 21 50 10 58 21 68 14 65 30"/>
+      <path d="M24 50c0-11 11-16 26-16s26 5 26 16"/>
+      <path d="M25 60c8-5 16 5 25 0s17 5 25 0"/>
+      <path d="M26 72c0 8 11 12 24 12s24-4 24-12"/>
+    </svg>
+    <span class="logo-word"><b>SMASH</b><span>CLUB MONACO</span></span>
+  </a>
+  <div class="lang" role="group" aria-label="Langue / Language">
+    <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+  <a class="back" href="index.html">&#8592; <span data-fr="Accueil">Accueil</span><span data-en="Home"></span></a>
+</header>
+
+<div class="mhead">
+  <svg class="logo-mark neon" viewBox="0 0 100 100" aria-hidden="true">
+    <path class="crown" d="M35 30 32 14 42 21 50 10 58 21 68 14 65 30"/>
+    <path d="M24 50c0-11 11-16 26-16s26 5 26 16"/>
+    <path d="M25 60c8-5 16 5 25 0s17 5 25 0"/>
+    <path d="M26 72c0 8 11 12 24 12s24-4 24-12"/>
+  </svg>
+  <h1>Menu</h1>
+  <p><span data-fr="Viande de bœuf fraîche 100% muscle · frites fraîches · potatoe bun">Viande de bœuf fraîche 100% muscle · frites fraîches · potatoe bun</span><span data-en="Fresh 100% muscle beef · hand-cut fries · potato bun"></span></p>
+  <p class="hrs">7/7 · 11:00 — 21:45</p>
+</div>
+
+<nav class="cats" aria-label="Catégories">
+  <div class="cats-in">
+    <a href="#burgers">Smash Burgers</a>
+    <a href="#sides">Sides</a>
+    <a href="#salades"><span data-fr="Salades">Salades</span><span data-en="Salads"></span></a>
+    <a href="#desserts">Desserts</a>
+    <a href="#boissons"><span data-fr="Boissons">Boissons</span><span data-en="Drinks"></span></a>
+  </div>
+</nav>
+
+<main id="menu">
+<div class="wrap">
+
+  <!-- ============ BURGERS ============ -->
+  <section class="msec" id="burgers">
+    <h2>Smash Burgers</h2>
+    <p class="note"><span data-fr="Chaque burger au choix : simple, double ou triple steak.">Chaque burger au choix : simple, double ou triple steak.</span><span data-en="Every burger your way: single, double or triple patty."></span></p>
+
+    <div class="szhead">
+      <span>Burger</span>
+      <span><span data-fr="Simple">Simple</span><span data-en="Single"></span></span>
+      <span>Double</span>
+      <span>Triple</span>
+    </div>
+
+    <div class="item">
+      <div class="nm">Cheese Burger</div><div class="p">9€</div><div class="p">12€</div><div class="p">15€</div>
+      <div class="ing"><span data-fr="Potatoe bun · bœuf frais 100% muscle · cheddar · laitue · pickles · oignons caramélisés · sauce Smash">Potatoe bun · bœuf frais 100% muscle · cheddar · laitue · pickles · oignons caramélisés · sauce Smash</span><span data-en="Potato bun · fresh 100% muscle beef · cheddar · lettuce · pickles · caramelised onions · Smash sauce"></span></div>
+    </div>
+    <div class="item">
+      <div class="nm">Bacon Cheese Burger</div><div class="p">10€</div><div class="p">13€</div><div class="p">16€</div>
+      <div class="ing"><span data-fr="Potatoe bun · bœuf frais · bacon fumé · cheddar · laitue · pickles · oignons caramélisés · sauce Smash">Potatoe bun · bœuf frais · bacon fumé · cheddar · laitue · pickles · oignons caramélisés · sauce Smash</span><span data-en="Potato bun · fresh beef · smoked bacon · cheddar · lettuce · pickles · caramelised onions · Smash sauce"></span></div>
+    </div>
+    <div class="item">
+      <div class="nm">American Burger</div><div class="p">11€</div><div class="p">14€</div><div class="p">17€</div>
+      <div class="ing"><span data-fr="Potatoe bun · bœuf frais · double cheddar · laitue · pickles · oignons caramélisés · frites fraîches · ketchup &amp; mayonnaise">Potatoe bun · bœuf frais · double cheddar · laitue · pickles · oignons caramélisés · frites fraîches · ketchup &amp; mayonnaise</span><span data-en="Potato bun · fresh beef · double cheddar · lettuce · pickles · caramelised onions · fries inside · ketchup &amp; mayo"></span></div>
+    </div>
+    <div class="item veg">
+      <div class="nm">Veggie Burger</div><div class="p">11€</div><div class="p">14€</div><div class="p">17€</div>
+      <div class="ing"><span data-fr="Potatoe bun · steak de légumes · cheddar · laitue · pickles · oignons caramélisés · sauce Smash">Potatoe bun · steak de légumes · cheddar · laitue · pickles · oignons caramélisés · sauce Smash</span><span data-en="Potato bun · vegetable steak · cheddar · lettuce · pickles · caramelised onions · Smash sauce"></span></div>
+    </div>
+    <div class="item">
+      <div class="nm">Jalapeños Burger</div><div class="p">12€</div><div class="p">15€</div><div class="p">18€</div>
+      <div class="ing"><span data-fr="Potatoe bun · bœuf frais · cheddar · laitue · jalapeños · oignons caramélisés · spicy sauce">Potatoe bun · bœuf frais · cheddar · laitue · jalapeños · oignons caramélisés · spicy sauce</span><span data-en="Potato bun · fresh beef · cheddar · lettuce · jalapeños · caramelised onions · spicy sauce"></span></div>
+    </div>
+    <div class="item">
+      <div class="nm">Chicken Burger</div><div class="p">12€</div><div class="p">15€</div><div class="p">18€</div>
+      <div class="ing"><span data-fr="Potatoe bun · filet de poulet croustillant · cheddar · laitue · pickles · oignons caramélisés · sauce mayonnaise onctueuse">Potatoe bun · filet de poulet croustillant · cheddar · laitue · pickles · oignons caramélisés · sauce mayonnaise onctueuse</span><span data-en="Potato bun · crispy chicken fillet · cheddar · lettuce · pickles · caramelised onions · creamy mayo"></span></div>
+    </div>
+    <div class="item">
+      <div class="nm">Avocado Burger</div><div class="p">13€</div><div class="p">16€</div><div class="p">19€</div>
+      <div class="ing"><span data-fr="Potatoe bun · bœuf frais · cheddar · avocat · oignons caramélisés · guacamole">Potatoe bun · bœuf frais · cheddar · avocat · oignons caramélisés · guacamole</span><span data-en="Potato bun · fresh beef · cheddar · avocado · caramelised onions · guacamole"></span></div>
+    </div>
+    <div class="item">
+      <div class="nm">Truffle Burger</div><div class="p">14€</div><div class="p">17€</div><div class="p">20€</div>
+      <div class="ing"><span data-fr="Potatoe bun · bœuf frais · cheddar · laitue · oignons caramélisés · sauce truffe noire">Potatoe bun · bœuf frais · cheddar · laitue · oignons caramélisés · sauce truffe noire</span><span data-en="Potato bun · fresh beef · cheddar · lettuce · caramelised onions · black truffle sauce"></span></div>
+    </div>
+    <div class="item">
+      <div class="nm">Raclette Burger</div><div class="p">14€</div><div class="p">17€</div><div class="p">20€</div>
+      <div class="ing"><span data-fr="Potatoe bun · bœuf frais · poitrine fumée · double raclette · pickles · oignons caramélisés · sauce Smash poivrée">Potatoe bun · bœuf frais · poitrine fumée · double raclette · pickles · oignons caramélisés · sauce Smash poivrée</span><span data-en="Potato bun · fresh beef · smoked brisket · double raclette · pickles · caramelised onions · peppered Smash sauce"></span></div>
+    </div>
+
+    <div class="combo">
+      <b>Combo +5€</b>
+      <span data-fr="Frites fraîches + boisson 33 cl avec n'importe quel burger.">Frites fraîches + boisson 33 cl avec n'importe quel burger.</span>
+      <span data-en="Hand-cut fries + 33cl drink with any burger."></span>
+    </div>
+
+    <div class="kingstrip">
+      <img src="assets/summerking.webp" width="1254" height="1254" loading="lazy"
+           data-alt-fr="Summer King, burger édition limitée" data-alt-en="Summer King, limited-edition burger"
+           alt="Summer King, burger édition limitée">
+      <div>
+        <span class="lbl"><span data-fr="Édition limitée">Édition limitée</span><span data-en="Limited edition"></span></span>
+        <h3>Summer King</h3>
+        <p><span data-fr="Bun artisanal · sauce smash tropicale · pickles · laitue · bœuf · cheddar · bacon · oignons rouges. Toute la saison d'été.">Bun artisanal · sauce smash tropicale · pickles · laitue · bœuf · cheddar · bacon · oignons rouges. Toute la saison d'été.</span><span data-en="Artisan bun · tropical smash sauce · pickles · lettuce · beef · cheddar · bacon · red onions. All summer long."></span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SIDES ============ -->
+  <section class="msec" id="sides">
+    <h2>Sides</h2>
+    <div class="row"><span class="nm"><span data-fr="Frites fraîches">Frites fraîches</span><span data-en="Hand-cut fries"></span></span><span class="p">4€</span></div>
+    <div class="row"><span class="nm">Cheese cream jalapeños <small>x4</small></span><span class="p">8€</span></div>
+    <div class="row"><span class="nm">Mozzarella sticks <small>x5</small></span><span class="p">8€</span></div>
+    <div class="row"><span class="nm">Chicken nuggets <small>x6</small></span><span class="p">8€</span></div>
+  </section>
+
+  <!-- ============ SALADES ============ -->
+  <section class="msec" id="salades">
+    <h2><span data-fr="Salades">Salades</span><span data-en="Salads"></span></h2>
+    <div class="row"><span class="nm"><span data-fr="Salade César">Salade César</span><span data-en="Caesar Salad"></span></span><span class="p">12€</span></div>
+  </section>
+
+  <!-- ============ DESSERTS ============ -->
+  <section class="msec" id="desserts">
+    <h2>Desserts</h2>
+    <div class="row"><span class="nm">Maxi Cookie</span><span class="p">4€</span></div>
+    <div class="row"><span class="nm">Maxi Brownie</span><span class="p">4€</span></div>
+    <div class="row"><span class="nm">Magnum</span><span class="p">4€</span></div>
+    <div class="row"><span class="nm">Häagen-Dazs</span><span class="p">4€</span></div>
+  </section>
+
+  <!-- ============ BOISSONS ============ -->
+  <section class="msec" id="boissons">
+    <h2><span data-fr="Boissons">Boissons</span><span data-en="Drinks"></span></h2>
+    <div class="row"><span class="nm"><span data-fr="Eaux 50 cl &amp; cannettes 33 cl">Eaux 50 cl &amp; cannettes 33 cl</span><span data-en="Water 50cl &amp; cans 33cl"></span></span><span class="p">3€</span></div>
+    <div class="row"><span class="nm"><span data-fr="Bouteille 50 cl">Bouteille 50 cl</span><span data-en="Bottle 50cl"></span></span><span class="p">4€</span></div>
+    <div class="row"><span class="nm"><span data-fr="Bière">Bière</span><span data-en="Beer"></span></span><span class="p">4€</span></div>
+    <div class="row"><span class="nm"><span data-fr="Vins &amp; Prosecco 75 cl">Vins &amp; Prosecco 75 cl</span><span data-en="Wine &amp; Prosecco 75cl"></span></span><span class="p">25€</span></div>
+  </section>
+
+  <div class="mcta">
+    <p><span data-fr="Sur place · À emporter · Livraison">Sur place · À emporter · Livraison</span><span data-en="Dine in · Takeaway · Delivery"></span></p>
+    <div class="btns">
+      <a class="btn btn-primary" href="tel:+37799922740"><span data-fr="Commander">Commander</span><span data-en="Order"></span> · +377 99 92 27 40</a>
+      <a class="btn btn-ghost" href="https://maps.google.com/?q=Smash+Club+Monaco,3+Rue+de+l'Eglise,98000+Monaco" target="_blank" rel="noopener"><span data-fr="Itinéraire">Itinéraire</span><span data-en="Directions"></span></a>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div>
+      <a class="logo" href="index.html" aria-label="Smash Club Monaco">
+        <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true">
+          <path class="crown" d="M35 30 32 14 42 21 50 10 58 21 68 14 65 30"/>
+          <path d="M24 50c0-11 11-16 26-16s26 5 26 16"/>
+          <path d="M25 60c8-5 16 5 25 0s17 5 25 0"/>
+          <path d="M26 72c0 8 11 12 24 12s24-4 24-12"/>
+        </svg>
+        <span class="logo-word"><b>SMASH</b><span>CLUB MONACO</span></span>
+      </a>
+      <small>3 rue de l'Église, 98000 Monaco-Ville · 7/7 11:00 — 21:45</small>
+    </div>
+    <nav class="foot-links" aria-label="Pied de page">
+      <a href="index.html"><span data-fr="Accueil">Accueil</span><span data-en="Home"></span></a>
+      <a href="tel:+37799922740">+377 99 92 27 40</a>
+      <a href="https://www.instagram.com/smash_club_monaco/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </div>
+  <div class="credit">
+    <span>© <span data-year></span> Smash Club Monaco</span>
+    <span><span data-fr="Site par">Site par</span><span data-en="Site by"></span> <a href="https://x3roautomations.it" target="_blank" rel="noopener">x3ro Automations</a></span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
+<script src="assets/js/core.js" defer></script>
+<script defer>
+window.addEventListener('load', function () {
+  var links = [].slice.call(document.querySelectorAll('.cats a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      var i = secs.indexOf(en.target);
+      links.forEach(function (l, j) { l.classList.toggle('on', i === j); });
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  secs.forEach(function (s) { if (s) io.observe(s); });
+});
+</script>
+</body>
+</html>
