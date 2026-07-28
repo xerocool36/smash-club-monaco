@@ -10,272 +10,181 @@
 <meta name="theme-color" content="#0A0405">
 <meta property="og:title" content="Smash Club Monaco — Le burger qui règne">
 <meta property="og:description" content="Premium smash burgers à Monaco-Ville. 4,6★ · 7/7 de 11h à 21h45.">
-<meta property="og:image" content="assets/hero-smash.webp">
+<meta property="og:image" content="assets/keyart.webp">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bowlby+One&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/core.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A0405'/%3E%3Cg fill='none' stroke='%23FFC24B' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M35 30 32 14 42 21 50 10 58 21 68 14 65 30'/%3E%3Cpath d='M24 50c0-11 11-16 26-16s26 5 26 16'/%3E%3Cpath d='M25 60c8-5 16 5 25 0s17 5 25 0'/%3E%3Cpath d='M26 72c0 8 11 12 24 12s24-4 24-12'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A0405'/%3E%3Cg fill='none' stroke='%23FF7A18' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 32V12l10 10 10-15 10 15 10-10v20'/%3E%3Cpath d='M25 52c0-15 10-22 25-22s25 7 25 22z'/%3E%3Cpath d='M25 60c8-5 16 5 25 0s17 5 25 0'/%3E%3Cpath d='M27 68c0 9 10 14 23 14s23-5 23-14'/%3E%3C/g%3E%3C/svg%3E">
 <style>
-/* ============ page shell ============ */
+/* ============ shell ============ */
 .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+.eyebrow{font:600 .72rem/1 var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--neon-2);display:block;margin-bottom:1rem}
+.h2{font-size:clamp(2rem,5.4vw,3.9rem);line-height:.97}
+.lead{color:var(--cream-dim);font-size:clamp(1rem,1.7vw,1.12rem);max-width:56ch;margin-top:1.05rem}
 section{position:relative}
-.eyebrow{font:600 .74rem/1 var(--body);letter-spacing:.3em;text-transform:uppercase;color:var(--neon-2);display:block;margin-bottom:1.1rem}
-.h2{font-size:clamp(2.2rem,6.4vw,4.6rem)}
-.lead{color:var(--cream-dim);font-size:clamp(1rem,1.9vw,1.15rem);max-width:56ch;margin-top:1.1rem}
 
-[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+/* one calm reveal, used everywhere */
+[data-reveal]{opacity:0;transform:translateY(20px);
+  transition:opacity .7s cubic-bezier(.22,.8,.3,1),transform .7s cubic-bezier(.22,.8,.3,1)}
 [data-reveal].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none}}
 
 /* ============ nav ============ */
-.nav{position:fixed;inset:0 0 auto;z-index:60;padding:.85rem var(--pad);
-  display:flex;align-items:center;gap:1.2rem;
-  background:linear-gradient(#0A0405EE,#0A040500);backdrop-filter:blur(9px);
-  transition:background .3s,box-shadow .3s}
-.nav.stuck{background:#0A0405F2;box-shadow:0 1px 0 var(--line)}
+.nav{position:fixed;inset:0 0 auto;z-index:60;padding:.8rem var(--pad);
+  display:flex;align-items:center;gap:1.1rem;
+  background:linear-gradient(#0A0405E6,#0A040500);
+  transition:background .35s ease,box-shadow .35s ease,backdrop-filter .35s ease}
+.nav.stuck{background:#0A0405F5;backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
 .nav .logo{color:var(--cream);margin-right:auto}
-.nav-links{display:flex;gap:1.7rem;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase}
-.nav-links a{text-decoration:none;color:var(--cream-dim);transition:color .2s}
+.nav-links{display:flex;gap:1.6rem;font-size:.83rem;letter-spacing:.05em;text-transform:uppercase}
+.nav-links a{text-decoration:none;color:var(--cream-dim);transition:color .25s}
 .nav-links a:hover{color:var(--gold)}
-.nav .btn{min-height:44px;font-size:.86rem;padding:0 1.1rem}
-@media (max-width:960px){.nav-links{display:none}}
+.nav .btn{min-height:44px;font-size:.84rem;padding:0 1.05rem}
+@media (max-width:980px){.nav-links{display:none}}
 
 /* ============ hero ============ */
-.hero{min-height:100svh;display:grid;align-items:center;padding:118px 0 70px;overflow:clip;
+.hero{min-height:100svh;display:grid;align-items:center;padding:120px 0 72px;overflow:clip;
   background:
-    radial-gradient(120% 85% at 78% 10%,rgba(255,110,20,.30),transparent 56%),
-    radial-gradient(100% 78% at 14% 92%,rgba(232,24,12,.34),transparent 60%),
-    linear-gradient(#0A0405,#25090A 48%,#0A0405)}
-/* slow breathing ember behind everything */
-.hero::before{content:"";position:absolute;inset:-20%;pointer-events:none;z-index:0;
-  background:radial-gradient(closest-side,rgba(232,24,12,.30),transparent 70%);
-  filter:blur(70px);animation:breathe 9s ease-in-out infinite}
-@keyframes breathe{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:1;transform:scale(1.12)}}
-.hero::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
-  background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px);
-  mix-blend-mode:overlay}
-.hero-grid{position:relative;z-index:2}
-
-/* headline: each line wipes up behind a mask */
-/* padding + matching negative margin so the mask never clips diacritics (RÈGNE) */
-.line{display:block;overflow:hidden;padding-top:.16em;margin-top:-.16em}
-.line>span{display:block;transform:translateY(105%);animation:wipe .95s cubic-bezier(.16,.9,.3,1) forwards}
-.line:nth-child(2)>span{animation-delay:.13s}
-@keyframes wipe{to{transform:none}}
-.fade-up{opacity:0;transform:translateY(18px);animation:fadeup .8s cubic-bezier(.2,.7,.3,1) forwards}
-.d1{animation-delay:.35s}.d2{animation-delay:.48s}.d3{animation-delay:.6s}.d4{animation-delay:.72s}
-@keyframes fadeup{to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){
-  .line>span,.fade-up{animation:none;transform:none;opacity:1}
-  .hero::before{animation:none}
-}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,64px);align-items:center}
-.hero-mark{width:clamp(74px,9vw,104px);height:auto;margin-bottom:1.4rem}
-.hero h1{font-size:clamp(3rem,9.2vw,7.2rem);line-height:.86}
-.hero h1 em{font-style:normal;display:block;color:var(--gold);
-  filter:drop-shadow(0 0 16px rgba(255,60,26,.6)) drop-shadow(0 0 46px rgba(255,120,0,.4))}
-.hero .sub{margin-top:1.5rem;font-size:clamp(1rem,2vw,1.2rem);color:var(--cream-dim);max-width:44ch}
-.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.1rem}
-.hero-meta{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;margin-top:2.2rem;font-size:.86rem;color:var(--cream-dim);align-items:center}
+    radial-gradient(110% 80% at 76% 14%,rgba(255,110,20,.24),transparent 58%),
+    radial-gradient(95% 75% at 12% 92%,rgba(232,24,12,.26),transparent 62%),
+    linear-gradient(#0A0405,#1E0809 50%,#0A0405)}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,5vw,72px);align-items:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(2.9rem,7.6vw,6rem);line-height:.9}
+.hero h1 em{font-style:normal;display:block;color:var(--gold)}
+.hero .sub{margin-top:1.4rem;font-size:clamp(1rem,1.8vw,1.16rem);color:var(--cream-dim);max-width:42ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.45rem 1.5rem;margin-top:2rem;font-size:.85rem;color:var(--cream-dim);align-items:center}
 .hero-meta b{color:var(--cream);font-weight:600}
-.stars{color:var(--gold);letter-spacing:.08em}
-.hero-shot{position:relative;justify-self:center;width:100%;max-width:470px}
-.hero-shot img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 64%;
-  max-height:min(68svh,640px);border-radius:20px;
-  box-shadow:0 40px 90px -30px #000,0 0 0 1px var(--line),0 0 70px -14px rgba(255,90,10,.5)}
-.hero-shot::before{content:"";position:absolute;inset:-14%;border-radius:50%;z-index:-1;
-  background:radial-gradient(closest-side,rgba(255,90,10,.42),transparent 72%);filter:blur(24px)}
-.badge{position:absolute;left:-14px;bottom:24px;background:linear-gradient(100deg,var(--neon),var(--neon-2));
-  color:#1A0600;font-family:var(--display);font-size:.94rem;letter-spacing:.05em;
-  padding:.55rem 1rem;border-radius:999px;box-shadow:0 12px 30px -12px rgba(255,80,0,.9);text-transform:uppercase}
-.scroll-cue{margin-top:2.6rem;display:inline-flex;align-items:center;gap:.6rem;color:var(--cream-dim);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase}
-.scroll-cue i{display:block;width:1px;height:34px;background:linear-gradient(var(--neon-2),transparent);animation:drop 1.9s ease-in-out infinite}
-@keyframes drop{0%,100%{transform:scaleY(.35);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+.stars{color:var(--gold);letter-spacing:.06em}
+
+/* their own neon key art as the hero visual */
+.poster{position:relative;justify-self:center;width:100%;max-width:430px}
+/* height:auto is load-bearing — without it the height attribute becomes the CSS height */
+.poster img{width:100%;height:auto;border-radius:18px;border:1px solid rgba(255,138,0,.28);
+  box-shadow:0 40px 90px -34px #000,0 0 70px -20px rgba(255,90,10,.5)}
+
+.hero-fade{opacity:0;transform:translateY(16px);animation:heroIn .85s cubic-bezier(.22,.8,.3,1) forwards}
+.f1{animation-delay:.05s}.f2{animation-delay:.16s}.f3{animation-delay:.27s}.f4{animation-delay:.38s}.f5{animation-delay:.49s}
+@keyframes heroIn{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.hero-fade{animation:none;opacity:1;transform:none}}
+
 @media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr;gap:26px}
-  .hero-shot{max-width:340px;order:-1}
-  .hero-shot img{aspect-ratio:1/1;max-height:38svh}
-  .hero{padding-top:96px;padding-bottom:48px}
-  .hero-mark{width:58px;margin-bottom:.9rem}
-  .hero h1{font-size:clamp(2.8rem,13vw,4rem)}
-  .hero .sub{margin-top:1.1rem}
-  .hero-cta{margin-top:1.5rem}
-  .hero-meta{margin-top:1.5rem}
-  .scroll-cue{margin-top:1.6rem}
+  .hero{padding:100px 0 56px;min-height:auto}
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .poster{order:-1;max-width:290px}
+  .hero h1{font-size:clamp(2.6rem,11vw,3.6rem)}
 }
 
 /* ============ ticker ============ */
-.ticker{border-block:1px solid var(--line);background:#140708;overflow:hidden;padding:.85rem 0}
-.ticker-in{display:flex;gap:2.6rem;width:max-content;animation:slide 34s linear infinite}
-.ticker span{font-family:var(--display);font-size:1.05rem;letter-spacing:.12em;color:var(--cream-dim);white-space:nowrap;text-transform:uppercase}
-.ticker span::after{content:"\25C6";color:var(--neon-2);margin-left:2.6rem;font-size:.7em;vertical-align:middle}
+.ticker{border-block:1px solid var(--line);background:#140708;overflow:hidden;padding:.8rem 0}
+.ticker-in{display:flex;gap:2.4rem;width:max-content;animation:slide 46s linear infinite}
+.ticker span{font-family:var(--display);font-size:1rem;letter-spacing:.11em;color:var(--cream-dim);white-space:nowrap;text-transform:uppercase}
+.ticker span::after{content:"\25C6";color:var(--neon-2);margin-left:2.4rem;font-size:.66em;vertical-align:middle}
 @keyframes slide{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.ticker-in{animation:none}}
 
-/* ============ story (sticky scrub) ============ */
-.story{padding:clamp(70px,10vw,130px) 0}
-.story-stage{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,70px);align-items:start}
-.story-pin{position:sticky;top:12vh;height:76vh;display:grid;place-items:center}
-.story-pin img{width:100%;max-width:440px;height:auto;border-radius:20px;
-  box-shadow:0 40px 90px -34px #000,0 0 0 1px var(--line);will-change:transform}
-.story-steps{display:grid;gap:clamp(46px,14vh,120px);padding:8vh 0}
-.story-step h3{font-size:clamp(1.6rem,3.6vw,2.5rem);color:var(--cream)}
-.story-step .n{font-family:var(--display);font-size:.9rem;color:var(--neon-2);letter-spacing:.24em;display:block;margin-bottom:.7rem}
-.story-step p{color:var(--cream-dim);margin-top:.9rem;max-width:42ch}
-@media (max-width:900px){
-  .story-stage{grid-template-columns:1fr}
-  .story-pin{top:8vh;height:42vh;margin-bottom:12px}
-  .story-pin img{max-width:min(70vw,300px)}
-  .story-steps{padding:4vh 0;gap:34px}
-}
+/* ============ story ============ */
+.story{padding:clamp(72px,9vw,120px) 0}
+.story-in{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,5vw,72px);align-items:center}
+.story-img img{width:100%;border-radius:18px;aspect-ratio:4/5;object-fit:cover;
+  box-shadow:0 36px 80px -34px #000;border:1px solid var(--line)}
+.steps{display:grid;gap:2rem;margin-top:2.2rem}
+.step{display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:start}
+.step .n{font-family:var(--display);font-size:.82rem;color:var(--neon-2);letter-spacing:.16em;
+  border:1px solid rgba(255,138,0,.35);border-radius:999px;padding:.45rem .7rem;line-height:1}
+.step h3{font-size:1.2rem;letter-spacing:.02em}
+.step p{color:var(--cream-dim);margin-top:.4rem;font-size:.96rem}
+@media (max-width:860px){.story-in{grid-template-columns:1fr}.story-img{max-width:340px}}
 
-/* ============ burgers ============ */
-.menu-sec{padding:clamp(70px,10vw,130px) 0;background:linear-gradient(#0A0405,#190809 40%,#0A0405)}
-.menu-head{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-end;justify-content:space-between;margin-bottom:2.6rem}
-.sizes{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:rgba(8,4,13,.6)}
-.sizes button{appearance:none;background:none;border:0;color:var(--cream-dim);cursor:pointer;
-  font:600 .78rem/1 var(--body);letter-spacing:.13em;text-transform:uppercase;padding:.85rem 1.05rem;min-height:46px;transition:.2s}
-.sizes button[aria-pressed="true"]{background:linear-gradient(100deg,var(--neon),var(--neon-2));color:#1A0600}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:14px}
-.card{border:1px solid var(--line);border-radius:16px;padding:1.5rem 1.4rem;background:rgba(255,255,255,.022);
-  display:flex;flex-direction:column;gap:.6rem;transition:border-color .3s,transform .3s,background .3s}
-.card:hover{border-color:rgba(255,138,0,.55);transform:translateY(-3px);background:rgba(255,138,0,.05)}
-.card-top{display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
-.card h3{font-size:1.28rem}
-.card .price{font-family:var(--display);font-size:1.5rem;color:var(--gold);white-space:nowrap;line-height:1}
-.card .ing{color:var(--cream-dim);font-size:.87rem;line-height:1.55}
-.card.veg h3{color:#8FD694}
-.tag{align-self:flex-start;font:600 .62rem/1 var(--body);letter-spacing:.16em;text-transform:uppercase;
-  color:var(--neon-2);border:1px solid rgba(255,138,0,.4);border-radius:999px;padding:.4rem .6rem}
-.combo-note{margin-top:1.6rem;font-size:.92rem;color:var(--cream-dim);display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center}
-.combo-note b{color:var(--gold);font-family:var(--display);letter-spacing:.04em;font-weight:400}
-
-/* ============ summer king ============ */
-.king{padding:clamp(60px,9vw,110px) 0}
-.king-in{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:center;
-  border:1px solid var(--line);border-radius:24px;overflow:hidden;background:linear-gradient(120deg,#22090A,#140708)}
-.king-in img{width:100%;height:100%;object-fit:cover;min-height:280px}
-.king-txt{padding:clamp(26px,4vw,52px)}
-@media (max-width:860px){.king-in{grid-template-columns:1fr}.king-in img{min-height:220px}}
+/* ============ menu card ============ */
+.menucard{padding:clamp(20px,4vw,40px) 0 clamp(72px,9vw,110px)}
+.mc{display:grid;grid-template-columns:1.1fr .9fr;align-items:stretch;text-decoration:none;color:inherit;
+  border:1px solid rgba(255,138,0,.3);border-radius:22px;overflow:clip;
+  background:linear-gradient(115deg,#25090A,#120607);
+  transition:border-color .35s ease,transform .35s cubic-bezier(.22,.8,.3,1),box-shadow .35s ease}
+.mc:hover{border-color:rgba(255,138,0,.62);transform:translateY(-3px);
+  box-shadow:0 30px 70px -34px rgba(255,90,10,.55)}
+.mc-txt{padding:clamp(30px,4.4vw,58px);display:flex;flex-direction:column;justify-content:center}
+.mc-txt h2{font-size:clamp(2rem,4.6vw,3.2rem)}
+.mc-txt p{color:var(--cream-dim);margin-top:.9rem;max-width:38ch}
+.mc-list{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.5rem}
+.mc-list span{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-dim);
+  border:1px solid var(--line);border-radius:999px;padding:.45rem .75rem}
+.mc-cta{margin-top:1.9rem;display:flex;flex-wrap:wrap;gap:.7rem}
+.mc-img{position:relative;min-height:300px;overflow:clip}
+.mc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transition:transform .7s cubic-bezier(.22,.8,.3,1)}
+.mc:hover .mc-img img{transform:scale(1.04)}
+.mc-img::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,#160708 6%,transparent 62%)}
+@media (max-width:860px){.mc{grid-template-columns:1fr}.mc-img{min-height:230px;order:-1}
+  .mc-img::after{background:linear-gradient(#16070800 40%,#160708)}}
 
 /* ============ club ============ */
-.club{padding:clamp(70px,10vw,130px) 0;background:linear-gradient(#0A0405,#1E090A,#0A0405)}
-.club-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:2.8rem}
-.club-grid figure{margin:0;border-radius:16px;overflow:clip;position:relative;border:1px solid var(--line)}
-.club-grid img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.3,1)}
-.club-grid figure:hover img{transform:scale(1.05)}
-.club-grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.4rem 1.1rem .95rem;
-  font:600 .76rem/1.3 var(--body);letter-spacing:.14em;text-transform:uppercase;
-  background:linear-gradient(transparent,rgba(8,4,13,.92))}
-.g-a{grid-column:span 7;aspect-ratio:16/11}
-.g-b{grid-column:span 5;aspect-ratio:4/5}
-.g-c{grid-column:span 5;aspect-ratio:5/4}
-.g-d{grid-column:span 7;aspect-ratio:16/10}
-@media (max-width:760px){.g-a,.g-b,.g-c,.g-d{grid-column:span 12;aspect-ratio:4/3}}
+.club{padding:clamp(72px,9vw,120px) 0;background:linear-gradient(#0A0405,#180809,#0A0405)}
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:2.6rem}
+.gal figure{margin:0;border-radius:16px;overflow:clip;position:relative;border:1px solid var(--line)}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,.8,.3,1)}
+.gal figure:hover img{transform:scale(1.045)}
+.gal figcaption{position:absolute;inset:auto 0 0 0;padding:1.5rem 1.05rem .9rem;
+  font:600 .74rem/1.3 var(--body);letter-spacing:.13em;text-transform:uppercase;
+  background:linear-gradient(transparent,rgba(8,4,13,.9))}
+.ga{grid-column:span 7;aspect-ratio:16/11}
+.gb{grid-column:span 5;aspect-ratio:4/5}
+.gc{grid-column:span 12;aspect-ratio:21/8}
+@media (max-width:760px){.ga,.gb,.gc{grid-column:span 12;aspect-ratio:4/3}}
 
 /* ============ reviews ============ */
-.rev{padding:clamp(70px,10vw,120px) 0}
-.rev-score{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.6rem;margin-bottom:2.6rem}
-.rev-score .big{font-family:var(--display);font-size:clamp(3rem,8vw,5rem);color:var(--gold);line-height:1}
-.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
-.quote{border:1px solid var(--line);border-radius:16px;padding:1.7rem 1.5rem;background:rgba(255,255,255,.022);margin:0}
-.quote p{font-size:1rem;line-height:1.7}
-.quote cite{display:block;margin-top:1.1rem;font-style:normal;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim)}
-.quote .stars{margin-bottom:.9rem;display:block}
+.rev{padding:clamp(72px,9vw,110px) 0}
+.rev-top{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;margin-bottom:2.4rem}
+.rev-top .big{font-family:var(--display);font-size:clamp(2.8rem,7vw,4.4rem);color:var(--gold);line-height:1}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:12px}
+.quote{border:1px solid var(--line);border-radius:16px;padding:1.6rem 1.45rem;background:rgba(255,255,255,.02);margin:0;
+  transition:border-color .3s ease}
+.quote:hover{border-color:rgba(255,138,0,.4)}
+.quote p{font-size:.98rem;line-height:1.68}
+.quote cite{display:block;margin-top:1rem;font-style:normal;font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;color:var(--cream-dim)}
+.quote .stars{margin-bottom:.8rem;display:block}
 
 /* ============ infos ============ */
-.info{padding:clamp(70px,10vw,120px) 0;background:linear-gradient(#0A0405,#190809)}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,60px);align-items:start}
-.info dl{margin:2rem 0 0;display:grid;gap:1.5rem}
-.info dt{font:600 .72rem/1 var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--neon-2);margin-bottom:.55rem}
-.info dd{margin:0;font-size:1.06rem}
+.info{padding:clamp(72px,9vw,110px) 0;background:linear-gradient(#0A0405,#150708)}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px);align-items:start}
+.info dl{margin:1.9rem 0 0;display:grid;gap:1.4rem}
+.info dt{font:600 .7rem/1 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--neon-2);margin-bottom:.5rem}
+.info dd{margin:0;font-size:1.04rem}
 .info dd a{text-decoration:none;border-bottom:1px solid var(--line)}
 .info dd a:hover{color:var(--gold);border-color:var(--gold)}
-.hours-row{display:flex;justify-content:space-between;gap:1.2rem;max-width:330px;padding:.45rem 0;border-bottom:1px dashed var(--line)}
-.open-pill{display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;font-size:.82rem;color:var(--cream-dim)}
+.hours-row{display:flex;justify-content:space-between;gap:1.2rem;max-width:320px;padding:.4rem 0;border-bottom:1px dashed var(--line)}
+.open-pill{display:inline-flex;align-items:center;gap:.5rem;margin-top:.9rem;font-size:.82rem;color:var(--cream-dim)}
 .open-pill i{width:8px;height:8px;border-radius:50%;background:#57D98A;box-shadow:0 0 10px #57D98A;display:block}
-.map{border:1px solid var(--line);border-radius:18px;overflow:clip;background:#140708}
-.map iframe{width:100%;height:400px;border:0;display:block;filter:grayscale(.3) invert(.92) hue-rotate(180deg) contrast(.9)}
+.map{border:1px solid var(--line);border-radius:18px;overflow:clip;background:#120607}
+.map iframe{width:100%;height:420px;border:0;display:block}
 @media (max-width:900px){
   .info-grid{grid-template-columns:1fr}
   .map{min-height:0;width:100%;max-width:100%}
-  .map iframe{height:300px}
+  .map iframe{height:290px}
 }
-.cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
-
-/* ============ effects layer ============ */
-
-/* cursor ember — desktop, fine pointers only */
-#ember{position:fixed;top:0;left:0;width:520px;height:520px;margin:-260px 0 0 -260px;
-  border-radius:50%;pointer-events:none;z-index:1;opacity:0;transition:opacity .5s;
-  background:radial-gradient(closest-side,rgba(232,24,12,.16),transparent 70%);filter:blur(20px)}
-@media (pointer:fine){#ember.on{opacity:1}}
-
-/* section headings get a rule that draws itself in */
-.h2{position:relative;display:inline-block;padding-bottom:.28em}
-.h2::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;border-radius:3px;
-  background:linear-gradient(90deg,var(--neon),var(--neon-2));
-  transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(.16,.9,.3,1) .1s}
-.h2.drawn::after{transform:scaleX(1)}
-
-/* cards: red bloom that follows the pointer */
-.card{position:relative;overflow:hidden}
-.card::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .35s;pointer-events:none;
-  background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(255,122,24,.16),transparent 70%)}
-.card:hover::before{opacity:1}
-.card .price{transition:transform .35s cubic-bezier(.2,.7,.3,1)}
-.card:hover .price{transform:scale(1.12)}
-
-/* price flip when the size toggle changes */
-@keyframes pricepop{0%{transform:translateY(-40%);opacity:0}100%{transform:none;opacity:1}}
-.card .price.pop{animation:pricepop .38s cubic-bezier(.16,.9,.3,1)}
-
-/* Gallery images wipe in behind a clip.
-   The clip lives on the <img>, never on the observed <figure>: an element with
-   clip-path:inset(...100%) reports zero intersection area, so an
-   IntersectionObserver watching it would never fire and the reveal would
-   deadlock (and its lazy image would never load). */
-.club-grid figure img{clip-path:inset(0 0 100% 0);transform:scale(1.12);
-  transition:clip-path 1s cubic-bezier(.16,.9,.3,1),transform 1.2s cubic-bezier(.16,.9,.3,1)}
-.club-grid figure.in img{clip-path:inset(0 0 0 0);transform:scale(1)}
-.club-grid figure.in:hover img{transform:scale(1.06)}
-
-/* buttons: sheen sweep on hover */
-.btn{position:relative;overflow:hidden}
-.btn::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;pointer-events:none;
-  background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);
-  transition:left .6s cubic-bezier(.16,.9,.3,1)}
-.btn:hover::after{left:130%}
-
-/* review score count-up */
-.rev-score .big{font-variant-numeric:tabular-nums}
-
-@media (prefers-reduced-motion:reduce){
-  .h2::after{transform:scaleX(1)}
-  .club-grid figure img{clip-path:none;transform:none}
-  #ember{display:none}
-}
+.cta-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.9rem}
 </style>
 </head>
 <body>
 <a class="skip" href="#main"><span data-fr="Aller au contenu">Aller au contenu</span><span data-en="Skip to content"></span></a>
 
-<header class="nav" id="nav">
+<header class="nav">
   <a class="logo" href="#top" aria-label="Smash Club Monaco">
     <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true">
-      <path class="crown" d="M35 30 32 14 42 21 50 10 58 21 68 14 65 30"/>
-      <path d="M24 50c0-11 11-16 26-16s26 5 26 16"/>
+      <path class="crown" d="M30 32V12l10 10 10-15 10 15 10-10v20"/>
+      <path d="M25 52c0-15 10-22 25-22s25 7 25 22z"/>
       <path d="M25 60c8-5 16 5 25 0s17 5 25 0"/>
-      <path d="M26 72c0 8 11 12 24 12s24-4 24-12"/>
+      <path d="M27 68c0 9 10 14 23 14s23-5 23-14"/>
     </svg>
     <span class="logo-word"><b>SMASH</b><span>CLUB MONACO</span></span>
   </a>
   <nav class="nav-links" aria-label="Navigation">
     <a href="#story"><span data-fr="Le smash">Le smash</span><span data-en="The smash"></span></a>
-    <a href="#burgers"><span data-fr="Burgers">Burgers</span><span data-en="Burgers"></span></a>
     <a href="#club"><span data-fr="Le club">Le club</span><span data-en="The club"></span></a>
-    <a href="#infos"><span data-fr="Infos">Infos</span><span data-en="Visit"></span></a>
+    <a href="#infos"><span data-fr="Nous trouver">Nous trouver</span><span data-en="Visit"></span></a>
   </nav>
   <div class="lang" role="group" aria-label="Langue / Language">
     <button type="button" data-lang="fr" aria-pressed="true">FR</button>
@@ -291,37 +200,29 @@ section{position:relative}
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <svg class="logo-mark hero-mark neon neon-flicker" viewBox="0 0 100 100" aria-hidden="true">
-        <path class="crown" d="M35 30 32 14 42 21 50 10 58 21 68 14 65 30"/>
-        <path d="M24 50c0-11 11-16 26-16s26 5 26 16"/>
-        <path d="M25 60c8-5 16 5 25 0s17 5 25 0"/>
-        <path d="M26 72c0 8 11 12 24 12s24-4 24-12"/>
-      </svg>
       <h1>
-        <span class="line"><span><span data-fr="Le burger">Le burger</span><span data-en="The burger"></span></span></span>
-        <em class="line"><span><span data-fr="qui règne">qui règne</span><span data-en="that reigns"></span></span></em>
+        <span class="hero-fade f1" data-fr="Le burger">Le burger</span><span class="hero-fade f1" data-en="The burger"></span>
+        <em class="hero-fade f2"><span data-fr="qui règne">qui règne</span><span data-en="that reigns"></span></em>
       </h1>
-      <p class="sub fade-up d1">
+      <p class="sub hero-fade f3">
         <span data-fr="Premium smash burgers, écrasés à la commande sur le Rocher. Viande de bœuf fraîche 100% muscle, potatoe bun, frites fraîches.">Premium smash burgers, écrasés à la commande sur le Rocher. Viande de bœuf fraîche 100% muscle, potatoe bun, frites fraîches.</span>
         <span data-en="Premium smash burgers, smashed to order on the Rock. Fresh 100% muscle beef, potato bun, hand-cut fries."></span>
       </p>
-      <div class="hero-cta fade-up d2">
+      <div class="hero-cta hero-fade f4">
         <a class="btn btn-primary" href="menu.html"><span data-fr="Voir le menu">Voir le menu</span><span data-en="See the menu"></span></a>
-        <a class="btn btn-ghost" href="tel:+37799922740"><span data-fr="Commander">Commander</span><span data-en="Order"></span> · +377 99 92 27 40</a>
+        <a class="btn btn-ghost" href="tel:+37799922740">+377 99 92 27 40</a>
       </div>
-      <div class="hero-meta fade-up d3">
-        <span><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>4,6</b> · 187 <span data-fr="avis Google">avis Google</span><span data-en="Google reviews"></span></span>
+      <div class="hero-meta hero-fade f5">
+        <span><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>4,6</b> · 187 <span data-fr="avis">avis</span><span data-en="reviews"></span></span>
         <span data-fr="Monaco-Ville · Le Rocher">Monaco-Ville · Le Rocher</span><span data-en="Monaco-Ville · The Rock"></span>
         <span><b>7/7</b> · 11h — 21h45</span>
       </div>
-      <div class="scroll-cue fade-up d4"><i></i><span data-fr="Faites défiler">Faites défiler</span><span data-en="Scroll"></span></div>
     </div>
-    <div class="hero-shot fade-up d1">
-      <img src="assets/hero-smash.webp" width="1348" height="2400" fetchpriority="high"
-           data-alt-fr="Double smash burger coupé en deux, cheddar fondu et oignons caramélisés"
-           data-alt-en="Double smash burger cut in half, melted cheddar and caramelised onions"
-           alt="Double smash burger coupé en deux, cheddar fondu et oignons caramélisés">
-      <span class="badge"><span data-fr="Dès 9 €">Dès 9 €</span><span data-en="From €9"></span></span>
+    <div class="poster hero-fade f2">
+      <img src="assets/keyart.webp" width="1100" height="1650" fetchpriority="high"
+           data-alt-fr="Affiche Smash Club Monaco : enseigne néon au-dessus de Monaco la nuit"
+           data-alt-en="Smash Club Monaco poster: neon sign above Monaco at night"
+           alt="Affiche Smash Club Monaco : enseigne néon au-dessus de Monaco la nuit">
     </div>
   </div>
 </section>
@@ -338,153 +239,95 @@ section{position:relative}
 
 <!-- ================= STORY ================= -->
 <section class="story" id="story">
-  <div class="wrap">
-    <div class="story-stage">
-      <div class="story-pin">
-        <img id="storyImg" src="assets/cheesepull.webp" width="1305" height="1400"
-             data-alt-fr="Smash burger tenu à la main, cheddar coulant"
-             data-alt-en="Smash burger held in hand, cheddar running"
-             alt="Smash burger tenu à la main, cheddar coulant" loading="lazy">
-      </div>
-      <div class="story-steps">
-        <div class="story-step" data-reveal>
+  <div class="wrap story-in">
+    <div class="story-img" data-reveal>
+      <img src="assets/cheesepull.webp" width="1305" height="1400" loading="lazy"
+           data-alt-fr="Smash burger tenu à la main, cheddar fondu"
+           data-alt-en="Smash burger held in hand, melted cheddar"
+           alt="Smash burger tenu à la main, cheddar fondu">
+    </div>
+    <div>
+      <span class="eyebrow" data-reveal><span data-fr="Le smash">Le smash</span><span data-en="The smash"></span></span>
+      <h2 class="h2" data-reveal><span data-fr="Écrasé, jamais formé">Écrasé, jamais formé</span><span data-en="Smashed, never moulded"></span></h2>
+      <div class="steps">
+        <div class="step" data-reveal>
           <span class="n">01</span>
-          <h3><span data-fr="Écrasé, jamais formé">Écrasé, jamais formé</span><span data-en="Smashed, never moulded"></span></h3>
-          <p><span data-fr="La boule de bœuf frais est écrasée sur la plaque brûlante. Toute la surface caramélise d'un coup — c'est cette croûte qui fait le goût.">La boule de bœuf frais est écrasée sur la plaque brûlante. Toute la surface caramélise d'un coup — c'est cette croûte qui fait le goût.</span><span data-en="A ball of fresh beef, pressed onto a screaming-hot plancha. The whole surface caramelises at once — that crust is the flavour."></span></p>
+          <div>
+            <h3><span data-fr="La croûte">La croûte</span><span data-en="The crust"></span></h3>
+            <p><span data-fr="La boule de bœuf frais est écrasée sur la plaque brûlante. Toute la surface caramélise d'un coup — c'est cette croûte qui fait le goût.">La boule de bœuf frais est écrasée sur la plaque brûlante. Toute la surface caramélise d'un coup — c'est cette croûte qui fait le goût.</span><span data-en="A ball of fresh beef, pressed onto a screaming-hot plancha. The whole surface caramelises at once — that crust is the flavour."></span></p>
+          </div>
         </div>
-        <div class="story-step" data-reveal>
+        <div class="step" data-reveal>
           <span class="n">02</span>
-          <h3><span data-fr="100% muscle">100% muscle</span><span data-en="100% muscle"></span></h3>
-          <p><span data-fr="Viande de bœuf fraîche, 100% muscle. Cheddar, pickles, oignons caramélisés et la sauce Smash.">Viande de bœuf fraîche, 100% muscle. Cheddar, pickles, oignons caramélisés et la sauce Smash.</span><span data-en="Fresh beef, 100% muscle. Cheddar, pickles, caramelised onions and the Smash sauce."></span></p>
+          <div>
+            <h3><span data-fr="100% muscle">100% muscle</span><span data-en="100% muscle"></span></h3>
+            <p><span data-fr="Viande de bœuf fraîche, 100% muscle. Cheddar, pickles, oignons caramélisés et la sauce Smash.">Viande de bœuf fraîche, 100% muscle. Cheddar, pickles, oignons caramélisés et la sauce Smash.</span><span data-en="Fresh beef, 100% muscle. Cheddar, pickles, caramelised onions and the Smash sauce."></span></p>
+          </div>
         </div>
-        <div class="story-step" data-reveal>
+        <div class="step" data-reveal>
           <span class="n">03</span>
-          <h3><span data-fr="Simple, double, triple">Simple, double, triple</span><span data-en="Single, double, triple"></span></h3>
-          <p><span data-fr="Chaque burger se commande en simple, double ou triple. Ajoutez frites fraîches et boisson 33 cl pour 5 € de plus.">Chaque burger se commande en simple, double ou triple. Ajoutez frites fraîches et boisson 33 cl pour 5 € de plus.</span><span data-en="Every burger comes single, double or triple. Add hand-cut fries and a 33cl drink for €5 more."></span></p>
+          <div>
+            <h3><span data-fr="Simple, double, triple">Simple, double, triple</span><span data-en="Single, double, triple"></span></h3>
+            <p><span data-fr="Chaque burger se commande en simple, double ou triple, avec l'option combo frites fraîches et boisson.">Chaque burger se commande en simple, double ou triple, avec l'option combo frites fraîches et boisson.</span><span data-en="Every burger comes single, double or triple, with a fries-and-drink combo option."></span></p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= BURGERS ================= -->
-<section class="menu-sec" id="burgers">
+<!-- ================= MENU CARD ================= -->
+<section class="menucard">
   <div class="wrap">
-    <div class="menu-head">
-      <div>
+    <a class="mc" href="menu.html" data-reveal>
+      <div class="mc-txt">
         <span class="eyebrow"><span data-fr="La carte">La carte</span><span data-en="The menu"></span></span>
-        <h2 class="h2"><span data-fr="Les burgers">Les burgers</span><span data-en="The burgers"></span></h2>
-      </div>
-      <div class="sizes" role="group" aria-label="Simple / Double / Triple">
-        <button type="button" data-size="1" aria-pressed="true"><span data-fr="Simple">Simple</span><span data-en="Single"></span></button>
-        <button type="button" data-size="2" aria-pressed="false">Double</button>
-        <button type="button" data-size="3" aria-pressed="false">Triple</button>
-      </div>
-    </div>
-
-    <div class="cards" id="cards">
-      <article class="card" data-p1="9" data-p2="12" data-p3="15">
-        <div class="card-top"><h3>Cheese Burger</h3><span class="price"></span></div>
-        <p class="ing"><span data-fr="Potatoe bun · bœuf frais 100% muscle · cheddar · laitue · pickles · oignons caramélisés · sauce Smash">Potatoe bun · bœuf frais 100% muscle · cheddar · laitue · pickles · oignons caramélisés · sauce Smash</span><span data-en="Potato bun · fresh 100% muscle beef · cheddar · lettuce · pickles · caramelised onions · Smash sauce"></span></p>
-      </article>
-      <article class="card" data-p1="10" data-p2="13" data-p3="16">
-        <div class="card-top"><h3>Bacon Cheese Burger</h3><span class="price"></span></div>
-        <p class="ing"><span data-fr="Potatoe bun · bœuf frais · bacon fumé · cheddar · laitue · pickles · oignons caramélisés · sauce Smash">Potatoe bun · bœuf frais · bacon fumé · cheddar · laitue · pickles · oignons caramélisés · sauce Smash</span><span data-en="Potato bun · fresh beef · smoked bacon · cheddar · lettuce · pickles · caramelised onions · Smash sauce"></span></p>
-      </article>
-      <article class="card" data-p1="11" data-p2="14" data-p3="17">
-        <div class="card-top"><h3>American Burger</h3><span class="price"></span></div>
-        <p class="ing"><span data-fr="Potatoe bun · bœuf frais · double cheddar · laitue · pickles · oignons caramélisés · frites fraîches · ketchup &amp; mayonnaise">Potatoe bun · bœuf frais · double cheddar · laitue · pickles · oignons caramélisés · frites fraîches · ketchup &amp; mayonnaise</span><span data-en="Potato bun · fresh beef · double cheddar · lettuce · pickles · caramelised onions · fries inside · ketchup &amp; mayo"></span></p>
-      </article>
-      <article class="card veg" data-p1="11" data-p2="14" data-p3="17">
-        <div class="card-top"><h3>Veggie Burger</h3><span class="price"></span></div>
-        <span class="tag"><span data-fr="Végétarien">Végétarien</span><span data-en="Vegetarian"></span></span>
-        <p class="ing"><span data-fr="Potatoe bun · steak de légumes · cheddar · laitue · pickles · oignons caramélisés · sauce Smash">Potatoe bun · steak de légumes · cheddar · laitue · pickles · oignons caramélisés · sauce Smash</span><span data-en="Potato bun · vegetable steak · cheddar · lettuce · pickles · caramelised onions · Smash sauce"></span></p>
-      </article>
-      <article class="card" data-p1="12" data-p2="15" data-p3="18">
-        <div class="card-top"><h3>Jalapeños Burger</h3><span class="price"></span></div>
-        <p class="ing"><span data-fr="Potatoe bun · bœuf frais · cheddar · laitue · jalapeños · oignons caramélisés · spicy sauce">Potatoe bun · bœuf frais · cheddar · laitue · jalapeños · oignons caramélisés · spicy sauce</span><span data-en="Potato bun · fresh beef · cheddar · lettuce · jalapeños · caramelised onions · spicy sauce"></span></p>
-      </article>
-      <article class="card" data-p1="12" data-p2="15" data-p3="18">
-        <div class="card-top"><h3>Chicken Burger</h3><span class="price"></span></div>
-        <p class="ing"><span data-fr="Potatoe bun · filet de poulet croustillant · cheddar · laitue · pickles · oignons caramélisés · sauce mayonnaise onctueuse">Potatoe bun · filet de poulet croustillant · cheddar · laitue · pickles · oignons caramélisés · sauce mayonnaise onctueuse</span><span data-en="Potato bun · crispy chicken fillet · cheddar · lettuce · pickles · caramelised onions · creamy mayo"></span></p>
-      </article>
-      <article class="card" data-p1="13" data-p2="16" data-p3="19">
-        <div class="card-top"><h3>Avocado Burger</h3><span class="price"></span></div>
-        <span class="tag"><span data-fr="Le préféré des avis">Le préféré des avis</span><span data-en="Reviewers' favourite"></span></span>
-        <p class="ing"><span data-fr="Potatoe bun · bœuf frais · cheddar · avocat · oignons caramélisés · guacamole">Potatoe bun · bœuf frais · cheddar · avocat · oignons caramélisés · guacamole</span><span data-en="Potato bun · fresh beef · cheddar · avocado · caramelised onions · guacamole"></span></p>
-      </article>
-      <article class="card" data-p1="14" data-p2="17" data-p3="20">
-        <div class="card-top"><h3>Truffle Burger</h3><span class="price"></span></div>
-        <p class="ing"><span data-fr="Potatoe bun · bœuf frais · cheddar · laitue · oignons caramélisés · sauce truffe noire">Potatoe bun · bœuf frais · cheddar · laitue · oignons caramélisés · sauce truffe noire</span><span data-en="Potato bun · fresh beef · cheddar · lettuce · caramelised onions · black truffle sauce"></span></p>
-      </article>
-      <article class="card" data-p1="14" data-p2="17" data-p3="20">
-        <div class="card-top"><h3>Raclette Burger</h3><span class="price"></span></div>
-        <p class="ing"><span data-fr="Potatoe bun · bœuf frais · poitrine fumée · double raclette · pickles · oignons caramélisés · sauce Smash poivrée">Potatoe bun · bœuf frais · poitrine fumée · double raclette · pickles · oignons caramélisés · sauce Smash poivrée</span><span data-en="Potato bun · fresh beef · smoked brisket · double raclette · pickles · caramelised onions · peppered Smash sauce"></span></p>
-      </article>
-    </div>
-
-    <p class="combo-note">
-      <b><span data-fr="Combo +5 €">Combo +5 €</span><span data-en="Combo +€5"></span></b>
-      <span data-fr="Frites fraîches + boisson 33 cl avec n'importe quel burger.">Frites fraîches + boisson 33 cl avec n'importe quel burger.</span><span data-en="Hand-cut fries + 33cl drink with any burger."></span>
-      <a class="btn btn-ghost inline-a" href="menu.html" style="font-size:.84rem;padding:0 1.05rem"><span data-fr="Carte complète">Carte complète</span><span data-en="Full menu"></span></a>
-    </p>
-  </div>
-</section>
-
-<!-- ================= SUMMER KING ================= -->
-<section class="king">
-  <div class="wrap">
-    <div class="king-in" data-reveal>
-      <img src="assets/summerking.webp" width="1254" height="1254" loading="lazy"
-           data-alt-fr="Summer King, le burger édition limitée de l'été"
-           data-alt-en="Summer King, the limited-edition summer burger"
-           alt="Summer King, le burger édition limitée de l'été">
-      <div class="king-txt">
-        <span class="eyebrow"><span data-fr="Édition limitée">Édition limitée</span><span data-en="Limited edition"></span></span>
-        <h2 style="font-size:clamp(2rem,5vw,3.4rem)">Summer King</h2>
-        <p class="lead"><span data-fr="Bun artisanal, sauce smash tropicale, pickles, laitue, bœuf, cheddar, bacon et oignons rouges. Disponible pendant toute la saison d'été.">Bun artisanal, sauce smash tropicale, pickles, laitue, bœuf, cheddar, bacon et oignons rouges. Disponible pendant toute la saison d'été.</span><span data-en="Artisan bun, tropical smash sauce, pickles, lettuce, beef, cheddar, bacon and red onions. Available all summer long."></span></p>
-        <div class="cta-row">
-          <a class="btn btn-ghost" href="tel:+37799922740"><span data-fr="Commander par téléphone">Commander par téléphone</span><span data-en="Call to order"></span></a>
+        <h2><span data-fr="Voir le menu">Voir le menu</span><span data-en="See the menu"></span></h2>
+        <p><span data-fr="Neuf smash burgers, sides, salade, desserts et boissons. Simple, double ou triple.">Neuf smash burgers, sides, salade, desserts et boissons. Simple, double ou triple.</span><span data-en="Nine smash burgers, sides, salad, desserts and drinks. Single, double or triple."></span></p>
+        <div class="mc-list">
+          <span>Cheese</span><span>Bacon</span><span>Truffle</span><span>Raclette</span><span>Avocado</span><span>Veggie</span>
+        </div>
+        <div class="mc-cta">
+          <span class="btn btn-primary"><span data-fr="Ouvrir la carte">Ouvrir la carte</span><span data-en="Open the menu"></span></span>
         </div>
       </div>
-    </div>
+      <div class="mc-img">
+        <img src="assets/bag-chicken.webp" width="1086" height="1086" loading="lazy"
+             data-alt-fr="Sac kraft Smash Club Monaco et burger"
+             data-alt-en="Smash Club Monaco kraft bag and burger"
+             alt="Sac kraft Smash Club Monaco et burger">
+      </div>
+    </a>
   </div>
 </section>
 
 <!-- ================= CLUB ================= -->
 <section class="club" id="club">
   <div class="wrap">
-    <span class="eyebrow"><span data-fr="Le club">Le club</span><span data-en="The club"></span></span>
-    <h2 class="h2"><span data-fr="Plus qu'un comptoir">Plus qu'un comptoir</span><span data-en="More than a counter"></span></h2>
-    <p class="lead"><span data-fr="Néons rouges, drapeaux du monde entier au plafond, et les matchs en direct sur écran. Sur le Rocher, à deux pas du Palais — on reste ouvert pour le match.">Néons rouges, drapeaux du monde entier au plafond, et les matchs en direct sur écran. Sur le Rocher, à deux pas du Palais — on reste ouvert pour le match.</span><span data-en="Red neon, flags of the world across the ceiling, and live matches on screen. On the Rock, steps from the Palace — we stay open for the game."></span></p>
-    <div class="club-grid">
-      <figure class="g-a" data-reveal>
+    <span class="eyebrow" data-reveal><span data-fr="Le club">Le club</span><span data-en="The club"></span></span>
+    <h2 class="h2" data-reveal><span data-fr="Plus qu'un comptoir">Plus qu'un comptoir</span><span data-en="More than a counter"></span></h2>
+    <p class="lead" data-reveal><span data-fr="Néons rouges, drapeaux du monde entier au plafond et les matchs en direct sur écran. Sur le Rocher, à deux pas du Palais.">Néons rouges, drapeaux du monde entier au plafond et les matchs en direct sur écran. Sur le Rocher, à deux pas du Palais.</span><span data-en="Red neon, flags of the world across the ceiling and live matches on screen. On the Rock, steps from the Palace."></span></p>
+    <div class="gal">
+      <figure class="ga" data-reveal>
         <img src="assets/interior-team.webp" width="1500" height="1500" loading="lazy"
              data-alt-fr="Intérieur du Smash Club, drapeaux du monde au plafond"
              data-alt-en="Inside Smash Club, world flags across the ceiling"
              alt="Intérieur du Smash Club, drapeaux du monde au plafond">
         <figcaption><span data-fr="L'intérieur">L'intérieur</span><span data-en="Inside"></span></figcaption>
       </figure>
-      <figure class="g-b" data-reveal>
+      <figure class="gb" data-reveal>
         <img src="assets/storefront.webp" width="1400" height="1866" loading="lazy"
-             data-alt-fr="Devanture du Smash Club, 3 rue de l'Église, Monaco-Ville"
-             data-alt-en="Smash Club storefront, 3 rue de l'Église, Monaco-Ville"
-             alt="Devanture du Smash Club, 3 rue de l'Église, Monaco-Ville">
+             data-alt-fr="Devanture du Smash Club, 3 rue de l'Église"
+             data-alt-en="Smash Club storefront, 3 rue de l'Église"
+             alt="Devanture du Smash Club, 3 rue de l'Église">
         <figcaption>Rue de l'Église</figcaption>
       </figure>
-      <figure class="g-c" data-reveal>
+      <figure class="gc" data-reveal>
         <img src="assets/neon-chalk.webp" width="1300" height="1300" loading="lazy"
              data-alt-fr="Enseigne néon et ardoise annonçant le match du jour"
              data-alt-en="Neon sign and chalkboard announcing today's match"
              alt="Enseigne néon et ardoise annonçant le match du jour">
         <figcaption><span data-fr="Les matchs en direct">Les matchs en direct</span><span data-en="Live matches"></span></figcaption>
-      </figure>
-      <figure class="g-d" data-reveal>
-        <img src="assets/bag-chicken.webp" width="1086" height="1086" loading="lazy"
-             data-alt-fr="Sac kraft Smash Club Monaco et chicken burger"
-             data-alt-en="Smash Club Monaco kraft bag and chicken burger"
-             alt="Sac kraft Smash Club Monaco et chicken burger">
-        <figcaption><span data-fr="À emporter">À emporter</span><span data-en="Takeaway"></span></figcaption>
       </figure>
     </div>
   </div>
@@ -493,12 +336,12 @@ section{position:relative}
 <!-- ================= REVIEWS ================= -->
 <section class="rev">
   <div class="wrap">
-    <span class="eyebrow"><span data-fr="Les avis">Les avis</span><span data-en="Reviews"></span></span>
-    <div class="rev-score">
+    <span class="eyebrow" data-reveal><span data-fr="Les avis">Les avis</span><span data-en="Reviews"></span></span>
+    <div class="rev-top" data-reveal>
       <span class="big">4,6</span>
       <div>
-        <span class="stars" style="font-size:1.3rem">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-        <p style="color:var(--cream-dim);font-size:.92rem"><span data-fr="187 avis Google · 4,8 sur Tripadvisor">187 avis Google · 4,8 sur Tripadvisor</span><span data-en="187 Google reviews · 4.8 on Tripadvisor"></span></p>
+        <span class="stars" style="font-size:1.25rem">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <p style="color:var(--cream-dim);font-size:.9rem"><span data-fr="187 avis Google · 4,8 sur Tripadvisor">187 avis Google · 4,8 sur Tripadvisor</span><span data-en="187 Google reviews · 4.8 on Tripadvisor"></span></p>
       </div>
     </div>
     <div class="quotes">
@@ -525,10 +368,10 @@ section{position:relative}
 <section class="info" id="infos">
   <div class="wrap info-grid">
     <div>
-      <span class="eyebrow"><span data-fr="Nous trouver">Nous trouver</span><span data-en="Find us"></span></span>
-      <h2 class="h2"><span data-fr="Sur le Rocher">Sur le Rocher</span><span data-en="On the Rock"></span></h2>
-      <p class="lead"><span data-fr="Au cœur de Monaco-Ville, entre le Palais Princier et la Cathédrale.">Au cœur de Monaco-Ville, entre le Palais Princier et la Cathédrale.</span><span data-en="In the heart of Monaco-Ville, between the Prince's Palace and the Cathedral."></span></p>
-      <dl>
+      <span class="eyebrow" data-reveal><span data-fr="Nous trouver">Nous trouver</span><span data-en="Find us"></span></span>
+      <h2 class="h2" data-reveal><span data-fr="Sur le Rocher">Sur le Rocher</span><span data-en="On the Rock"></span></h2>
+      <p class="lead" data-reveal><span data-fr="Au cœur de Monaco-Ville, entre le Palais Princier et la Cathédrale.">Au cœur de Monaco-Ville, entre le Palais Princier et la Cathédrale.</span><span data-en="In the heart of Monaco-Ville, between the Prince's Palace and the Cathedral."></span></p>
+      <dl data-reveal>
         <div>
           <dt><span data-fr="Adresse">Adresse</span><span data-en="Address"></span></dt>
           <dd><a class="inline-a" href="https://maps.google.com/?q=Smash+Club+Monaco,3+Rue+de+l'Eglise,98000+Monaco" target="_blank" rel="noopener">3 rue de l'Église, 98000 Monaco-Ville</a></dd>
@@ -549,14 +392,15 @@ section{position:relative}
           <dd><span data-fr="Sur place · À emporter · Livraison">Sur place · À emporter · Livraison</span><span data-en="Dine in · Takeaway · Delivery"></span></dd>
         </div>
       </dl>
-      <div class="cta-row">
+      <div class="cta-row" data-reveal>
         <a class="btn btn-primary" href="tel:+37799922740"><span data-fr="Appeler">Appeler</span><span data-en="Call"></span></a>
         <a class="btn btn-ghost" href="https://maps.google.com/?q=Smash+Club+Monaco,3+Rue+de+l'Eglise,98000+Monaco" target="_blank" rel="noopener"><span data-fr="Itinéraire">Itinéraire</span><span data-en="Directions"></span></a>
       </div>
     </div>
-    <div class="map">
-      <iframe title="Smash Club Monaco — 3 rue de l'Église, Monaco-Ville" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.openstreetmap.org/export/embed.html?bbox=7.4185%2C43.7290%2C7.4265%2C43.7325&amp;layer=mapnik&amp;marker=43.730685%2C7.4224825"></iframe>
+    <div class="map" data-reveal>
+      <iframe title="Smash Club Monaco — 3 rue de l'Église, Monaco-Ville" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+        src="https://www.google.com/maps?q=Smash+Club+Monaco,3+Rue+de+l%27Eglise,98000+Monaco&hl=fr&z=17&output=embed"></iframe>
     </div>
   </div>
 </section>
@@ -567,10 +411,10 @@ section{position:relative}
     <div>
       <a class="logo" href="#top" aria-label="Smash Club Monaco">
         <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true">
-          <path class="crown" d="M35 30 32 14 42 21 50 10 58 21 68 14 65 30"/>
-          <path d="M24 50c0-11 11-16 26-16s26 5 26 16"/>
+          <path class="crown" d="M30 32V12l10 10 10-15 10 15 10-10v20"/>
+          <path d="M25 52c0-15 10-22 25-22s25 7 25 22z"/>
           <path d="M25 60c8-5 16 5 25 0s17 5 25 0"/>
-          <path d="M26 72c0 8 11 12 24 12s24-4 24-12"/>
+          <path d="M27 68c0 9 10 14 23 14s23-5 23-14"/>
         </svg>
         <span class="logo-word"><b>SMASH</b><span>CLUB MONACO</span></span>
       </a>
@@ -585,135 +429,13 @@ section{position:relative}
   </div>
   <div class="credit">
     <span>© <span data-year></span> Smash Club Monaco</span>
-    <span><span data-fr="Site par">Site par</span><span data-en="Site by"></span> <a href="https://x3roautomations.it" target="_blank" rel="noopener">x3ro Automations</a></span>
+    <a class="by" href="https://x3roautomations.it" target="_blank" rel="noopener">
+      <span data-fr="Site par">Site par</span><span data-en="Site by"></span>
+      <img src="assets/x3ro-logo.webp" width="300" height="188" loading="lazy" alt="x3ro Automations">
+    </a>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
 <script src="assets/js/core.js" defer></script>
-<script defer>
-window.addEventListener('load', function () {
-  /* ---- price size toggle ---- */
-  var cards = document.querySelectorAll('#cards .card');
-  function setSize(n) {
-    cards.forEach(function (c) {
-      var p = c.querySelector('.price');
-      p.textContent = c.dataset['p' + n] + ' €';
-      p.classList.remove('pop'); void p.offsetWidth; p.classList.add('pop');
-    });
-    document.querySelectorAll('.sizes button').forEach(function (b) {
-      b.setAttribute('aria-pressed', String(b.dataset.size === n));
-    });
-  }
-  document.querySelector('.sizes').addEventListener('click', function (e) {
-    var b = e.target.closest('button'); if (b) setSize(b.dataset.size);
-  });
-  setSize('1');
-
-  /* ---- nav shadow ---- */
-  var nav = document.getElementById('nav');
-  var onScroll = function () { nav.classList.toggle('stuck', window.scrollY > 40); };
-  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
-
-  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fine = matchMedia('(pointer: fine)').matches;
-
-  /* ---- cursor ember ---- */
-  if (fine && !reduced) {
-    var em = document.createElement('div');
-    em.id = 'ember'; document.body.appendChild(em);
-    var ex = 0, ey = 0, cx = 0, cy = 0;
-    window.addEventListener('pointermove', function (e) {
-      ex = e.clientX; ey = e.clientY; em.classList.add('on');
-    }, { passive: true });
-    (function loop() {
-      cx += (ex - cx) * 0.09; cy += (ey - cy) * 0.09;
-      em.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)';
-      requestAnimationFrame(loop);
-    })();
-  }
-
-  /* ---- card pointer bloom ---- */
-  document.querySelectorAll('.card').forEach(function (c) {
-    c.addEventListener('pointermove', function (e) {
-      var r = c.getBoundingClientRect();
-      c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-      c.style.setProperty('--my', (e.clientY - r.top) + 'px');
-    }, { passive: true });
-  });
-
-  /* ---- magnetic buttons ---- */
-  if (fine && !reduced) {
-    document.querySelectorAll('.btn').forEach(function (b) {
-      b.addEventListener('pointermove', function (e) {
-        var r = b.getBoundingClientRect();
-        var dx = (e.clientX - (r.left + r.width / 2)) / r.width;
-        var dy = (e.clientY - (r.top + r.height / 2)) / r.height;
-        b.style.transform = 'translate(' + (dx * 7).toFixed(1) + 'px,' + (dy * 5 - 2).toFixed(1) + 'px)';
-      }, { passive: true });
-      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
-    });
-  }
-
-  /* ---- heading rules + gallery clip reveals + score count-up ---- */
-  if ('IntersectionObserver' in window) {
-    var ro = new IntersectionObserver(function (es) {
-      es.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        en.target.classList.add('drawn', 'in');
-        ro.unobserve(en.target);
-      });
-    }, { threshold: 0.25 });
-    document.querySelectorAll('.h2, .club-grid figure').forEach(function (el) { ro.observe(el); });
-
-    var big = document.querySelector('.rev-score .big');
-    if (big && !reduced) {
-      var co = new IntersectionObserver(function (es) {
-        es.forEach(function (en) {
-          if (!en.isIntersecting) return;
-          co.unobserve(en.target);
-          var t0 = null;
-          requestAnimationFrame(function step(t) {
-            if (t0 === null) t0 = t;
-            var k = Math.min(1, (t - t0) / 1100);
-            big.textContent = (4.6 * (1 - Math.pow(1 - k, 3))).toFixed(1).replace('.', ',');
-            if (k < 1) requestAnimationFrame(step);
-          });
-        });
-      }, { threshold: 0.6 });
-      co.observe(big);
-    }
-  }
-
-  /* ---- hero parallax ---- */
-  if (!reduced) {
-    var shot = document.querySelector('.hero-shot img');
-    if (shot) {
-      window.addEventListener('scroll', function () {
-        var y = window.scrollY;
-        if (y < window.innerHeight * 1.2) shot.style.transform = 'translateY(' + (y * -0.06).toFixed(1) + 'px)';
-      }, { passive: true });
-    }
-  }
-
-  /* ---- story image scrub ---- */
-  if (!reduced && window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-    var shots = ['assets/cheesepull.webp', 'assets/coke-red.webp', 'assets/burger-fries.webp'];
-    shots.slice(1).forEach(function (s) { var i = new Image(); i.src = s; });
-    var img = document.getElementById('storyImg'), current = 0;
-    ScrollTrigger.create({
-      trigger: '.story-steps', start: 'top 70%', end: 'bottom 60%', scrub: 0.6,
-      onUpdate: function (self) {
-        var i = Math.min(shots.length - 1, Math.floor(self.progress * shots.length));
-        if (i !== current) { current = i; img.src = shots[i]; }
-        gsap.set(img, { scale: 1 + self.progress * 0.07, rotate: (self.progress - 0.5) * 2.2 });
-      }
-    });
-  }
-});
-</script>
 </body>
 </html>

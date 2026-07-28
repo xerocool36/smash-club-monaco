@@ -1,23 +1,22 @@
-/* Smash Club Monaco — shared behaviour: language toggle, year stamp, Lenis smooth scroll.
-   localStorage key "scm-lang" holds "fr" | "en". FR is the default. */
+/* Smash Club Monaco — shared behaviour: language toggle, year stamp, scroll reveals.
+   No smooth-scroll library and no scroll-scrub: native scrolling is crisper and
+   never fights the user's trackpad. localStorage key "scm-lang" holds "fr" | "en". */
 (function () {
   'use strict';
 
-  /* ---------- language ---------- */
   var KEY = 'scm-lang';
-  function stored() {
-    try { return localStorage.getItem(KEY); } catch (e) { return null; }
-  }
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Hydrate: the translated string lives in the data-fr / data-en attribute.
-     FR spans also carry literal text so the page reads correctly with JS off;
-     EN spans are empty in the markup and get filled here. */
+  /* ---------- language ----------
+     Translated strings live in data-fr / data-en attributes. FR spans also carry
+     literal text so the page reads with JS off; EN spans are empty and filled here. */
   ['fr', 'en'].forEach(function (l) {
     document.querySelectorAll('[data-' + l + ']').forEach(function (el) {
       var v = el.getAttribute('data-' + l);
       if (v && !el.textContent.trim()) el.textContent = v;
     });
   });
+
   function apply(lang) {
     document.documentElement.lang = lang;
     document.querySelectorAll('.lang button').forEach(function (b) {
@@ -26,12 +25,11 @@
     document.querySelectorAll('[data-alt-fr]').forEach(function (el) {
       el.setAttribute('alt', lang === 'en' ? el.dataset.altEn : el.dataset.altFr);
     });
-    document.querySelectorAll('[data-label-fr]').forEach(function (el) {
-      el.setAttribute('aria-label', lang === 'en' ? el.dataset.labelEn : el.dataset.labelFr);
-    });
     try { localStorage.setItem(KEY, lang); } catch (e) { /* private mode */ }
   }
-  var initial = stored();
+
+  var initial;
+  try { initial = localStorage.getItem(KEY); } catch (e) { initial = null; }
   if (!initial) initial = /^en\b/i.test(navigator.language || '') ? 'en' : 'fr';
   apply(initial);
 
@@ -45,40 +43,31 @@
     el.textContent = String(new Date().getFullYear());
   });
 
-  /* ---------- smooth scroll ---------- */
-  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function initLenis() {
-    if (reduced || !window.Lenis || window.__lenis) return;
-    var lenis = new window.Lenis({ duration: 1.1, smoothWheel: true });
-    window.__lenis = lenis;
-    (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
-    if (window.ScrollTrigger) lenis.on('scroll', window.ScrollTrigger.update);
-  }
-  if (window.Lenis) initLenis(); else window.addEventListener('load', initLenis);
-
-  /* in-page links route through Lenis (capture phase) */
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest('a[href^="#"]');
-    if (!a) return;
-    var href = a.getAttribute('href');
-    if (href.length < 2) return;
-    var el = document.querySelector(href);
-    if (!el) return;
-    e.preventDefault();
-    if (window.__lenis) window.__lenis.scrollTo(el, { offset: -8 });
-    else el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
-    if (history.replaceState) history.replaceState(null, '', href);
-  }, true);
-
-  /* ---------- reveal on scroll ---------- */
-  if (!reduced && 'IntersectionObserver' in window) {
+  /* ---------- reveal on scroll ----------
+     Only opacity + transform. Never clip-path on the observed node: a clipped
+     element reports zero intersection area and the reveal deadlocks. */
+  var items = document.querySelectorAll('[data-reveal]');
+  if (reduced || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+  } else {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        if (!en.isIntersecting) return;
+        var sibs = en.target.parentElement ? en.target.parentElement.children : [en.target];
+        var g = [].indexOf.call(sibs, en.target);
+        en.target.style.transitionDelay = Math.min(g, 4) * 70 + 'ms';
+        en.target.classList.add('in');
+        io.unobserve(en.target);
       });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
-    document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
-  } else {
-    document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('in'); });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- nav shade ---------- */
+  var nav = document.querySelector('.nav');
+  if (nav) {
+    var onScroll = function () { nav.classList.toggle('stuck', window.scrollY > 30); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
   }
 })();
