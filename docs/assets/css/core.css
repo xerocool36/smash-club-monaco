@@ -114,12 +114,16 @@ html[lang="en"] [data-en]{display:revert}
 .credit a{color:var(--cream);text-decoration:none}
 .credit a:hover{color:var(--gold)}
 
-/* x3ro credit — logo kept small and in its natural 300:188 proportion */
-.by{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;
-  opacity:.72;transition:opacity .25s}
-.by:hover{opacity:1}
-.by span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-dim)}
-.by img{height:30px;width:auto;display:block}
+/* x3ro credit — kept small and in its natural 300:188 proportion, but the mark is
+   dark navy and disappeared against the near-black footer at 30px/0.72 opacity.
+   Full opacity, larger, and sat on a faint chip so it separates from the ground. */
+.by{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;
+  padding:.35rem .6rem .35rem .7rem;border-radius:999px;
+  border:1px solid var(--line);background:rgba(247,241,231,.06);
+  transition:border-color .25s,background .25s}
+.by:hover{border-color:rgba(255,194,75,.5);background:rgba(247,241,231,.1)}
+.by span{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim)}
+.by img{height:40px;width:auto;display:block}
 
 /* Tap targets ≥44px. Keyed on coarse pointer OR narrow viewport — `pointer:coarse`
    alone misses touch-screen laptops and does not apply in a resized desktop
