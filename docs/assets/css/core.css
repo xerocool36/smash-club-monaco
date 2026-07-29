@@ -53,7 +53,17 @@ p{margin:0}
 .logo-mark .crown{stroke-width:5}
 .logo-word{display:flex;flex-direction:column;line-height:1}
 .logo-word b{font-family:'Bowlby One',var(--display);font-size:1.1rem;letter-spacing:.03em;font-weight:400}
-.logo-word span{font-size:.5rem;letter-spacing:.3em;color:var(--cream-dim);margin-top:.28rem}
+.logo-word span{font-size:.5rem;letter-spacing:.3em;color:var(--cream-dim);margin-top:.28rem;white-space:nowrap}
+
+/* Narrow phones (iPhone SE / 320): the wordmark wrapped to two lines and the
+   language toggle was getting squeezed out of the bar. */
+@media (max-width:400px){
+  .logo-mark{width:30px;height:30px}
+  .logo-word b{font-size:.95rem}
+  .logo-word span{font-size:.42rem;letter-spacing:.2em}
+  .lang{flex:0 0 auto}
+  .lang button{padding-inline:.7rem}
+}
 
 /* neon treatment, used in the hero */
 .neon{color:var(--gold);filter:drop-shadow(0 0 10px rgba(255,60,26,.75)) drop-shadow(0 0 34px rgba(255,120,0,.45))}
@@ -111,11 +121,18 @@ html[lang="en"] [data-en]{display:revert}
 .by span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-dim)}
 .by img{height:30px;width:auto;display:block}
 
-/* tap targets — coarse pointers only, desktop untouched */
-@media (pointer:coarse){
-  .foot-links a,.credit a,.inline-a,.info dd a{display:inline-flex;align-items:center;min-height:44px}
-  .lang button{min-height:44px;padding-inline:.95rem}
-  .logo{min-height:44px}
+/* Tap targets ≥44px. Keyed on coarse pointer OR narrow viewport — `pointer:coarse`
+   alone misses touch-screen laptops and does not apply in a resized desktop
+   browser, so the rule was silently untested. Wide desktop is untouched. */
+@media (pointer:coarse),(max-width:900px){
+  .foot-links a,.credit a,.credit .by,.inline-a,.info dd a,.cats a{
+    display:inline-flex;align-items:center;min-height:44px}
+  .foot-links a{min-width:44px}   /* short labels like "Menu" fall under 44 on width */
+  /* 44px-tall items would otherwise leave a huge gap between wrapped rows */
+  .foot-links{gap:0 1.3rem}
+  .foot-in{gap:18px}
+  .lang button{min-height:44px;padding-inline:1rem}
+  .logo,.back{min-height:44px}
   .nav-links a{display:inline-flex;align-items:center;min-height:44px}
 }
 
